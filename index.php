@@ -47,7 +47,7 @@ require_once 'db/conn.php';
 <div class="mb-3 mt-3"> 
      <label for="avatar"  class="form-text text-muted">File Upload is Optional</label>
      <input type="file" accept="image/*" class="form-control" id="avatar"  name="avatar" />
-     <input class="form-control form-control-lg" id="avatar" type="file" />
+    
   </div>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email address</label>
