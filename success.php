@@ -11,15 +11,27 @@ if(isset($_POST['submit'])){
   $email = $_POST['email'];
   $contact = $_POST['contact'];
   $specialty = $_POST['specialty'];
-  $isSuccecc = $crud->insertAttendee($fname,$lname,$dob,$email,$contact,$specialty);
+  
+
+
+  $orig_file = $_FILES["avatar"]["tmp_name"];
+  $ext = pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION);
+  $target_dir = 'uploads/';
+  $destination = "$target_dir$contact.$ext";
+  move_uploaded_file($orig_file,$destination);
+
+$isSuccecc = $crud->insertAttendee($fname,$lname,$dob,$email,$contact,$specialty,$destination);
   $specialtyName = $crud->getSpecialtyById($specialty);
-}
-if ($isSuccecc){
-  SendEmail::SendMail($email,'Your registration is successful','We look forward to seeing you!!');
-  include 'includes/successmessage.php';
-}
-else{
-  include 'includes/errormessage.php';
+
+
+
+  if ($isSuccecc){
+      SendEmail::SendMail($email,'Your registration is successful','We look forward to seeing you!!');
+      include 'includes/successmessage.php';
+      }
+    else{
+     include 'includes/errormessage.php';
+  }
 }
 
 ?>
@@ -40,6 +52,8 @@ else{
     <h6 class="card-subtitle mb-2 text-muted"><?php //echo 'Telephone Number is: '.$_GET['contact'];?></h6>
 
 -->
+
+<img src="<?php echo $destination; ?>" class="rounded-circle" style="width: 120px; height: 120px" />
 <div class="card-body">
     <h5 class="card-title"><?php echo $_POST['FirstName'].' '. $_POST['LastName']; ?></h5>
     <h6 class="card-subtitle mb-2 text-muted"><?php echo 'Date of Birth is: '.$_POST['dob'];?></h6>

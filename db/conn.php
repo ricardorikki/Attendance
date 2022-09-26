@@ -11,7 +11,7 @@
     $db = 'fd0df34k0c';
     $user = 'fd0df34k0c';
     $pass = '2kTZ9RBDOh';
-    $charset = 'utf8mb4';
+    $charset = 'utf8mb4'; 
 
     $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 

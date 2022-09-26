@@ -16,7 +16,7 @@ require_once 'db/conn.php';
 -->
 
 <div class="form">
- <form action="success.php" class="was-validated" method="post">
+ <form action="success.php" class="was-validated" method="post" enctype="multipart/form-data">
   <div class="mb-3 mt-3">
     <label for="fname" class="form-label">First Name:</label>
     <input type="text" class="form-control" id="fname" placeholder="Enter First Name" name="FirstName" required>
@@ -31,8 +31,6 @@ require_once 'db/conn.php';
   </div>
 
   <div class="mb-3 mt-3">
-
-    
     <p>Date of Birth: <input type="text" class="form-control" id="dateofbirth" name="dob" required></p>
     <div class="valid-feedback">Looks Good!</div>
     <div class="invalid-feedback">Please fill out this field.</div>
@@ -46,9 +44,14 @@ require_once 'db/conn.php';
     <div class="invalid-feedback">Please select.</div>  
 </select><p></p>
  
+<div class="mb-3 mt-3"> 
+     <label for="avatar"  class="form-text text-muted">File Upload is Optional</label>
+     <input type="file" accept="image/*" class="form-control" id="avatar"  name="avatar" />
+     <input class="form-control form-control-lg" id="avatar" type="file" />
+  </div>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" required>
+    <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="email" required>
     <div id="email" class="form-text">We'll never share your email with anyone else.</div>
     <div class="valid-feedback">Looks Good!</div>
     <div class="invalid-feedback">Please fill out this field.</div>

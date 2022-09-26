@@ -15,6 +15,7 @@
     
     
 ?>
+<img src="<?php echo empty($result['avatar_path']) ? "uploads/blank.png" : $result['avatar_path'] ; ?>" class="rounded-circle" style="width: 120px; height: 120px" />
 
 
 <div class="card-body">
